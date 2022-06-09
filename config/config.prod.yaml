@@ -1,0 +1,56 @@
+Name: petty-cash-backend
+
+Log:
+    Level: debug
+    Format: console
+    Directory: ./logs
+    Development: true
+
+HTTP:
+    Host: 0.0.0.0
+    Port: 2222
+
+SuperAdmin:
+    Username: root
+    Realname: Agustinus
+    Password: 123123
+
+Auth:
+    Enable: true
+    TokenExpired: 86400
+    IgnorePathPrefixes:
+        - /pprof
+        - /swagger
+        - /api/v1/publics/captcha
+        - /api/v1/publics/user/login
+        - /api/v1/publics/user/loginsimple
+
+Casbin:
+    Enable: true
+    Debug: false
+    AutoLoad: false
+    AutoLoadInternal: 10
+    IgnorePathPrefixes:
+        - /pprof
+        - /swagger
+        - /api/v1/publics/user
+        - /api/v1/publics/captcha
+
+Redis:
+    Host: redis
+    Port: 6379
+    Password:
+    KeyPrefix: r
+
+Database:
+    Engine: mysql
+    Name: go_petty_cash
+    Host: db
+    Port: 3306
+    Username: root
+    Password: root
+    TablePrefix: t
+    Parameters: charset=utf8mb4&parseTime=True&loc=Local&allowNativePasswords=true&timeout=15s
+    MaxLifetime: 7200
+    MaxOpenConns: 150
+    MaxIdleConns: 50
